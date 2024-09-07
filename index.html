@@ -25,6 +25,12 @@ body {
     padding-bottom: 120px;
 }
 
+/* 박스 모델 설정 */
+* {
+    box-sizing: border-box;
+}
+
+/* 헤더 스타일 */
 .header {
     background: #fff; /* 흰색 배경 */
     color: #333; /* 어두운 텍스트 색상 */
@@ -41,11 +47,13 @@ body {
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* 헤더 호버 스타일 */
 .header:hover {
     background: #f9f9f9; /* 상단바 호버 시 배경색 변경 */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
 }
 
+/* 로고 스타일 */
 .header .logo {
     font-size: 32px; /* 로고 크기 확대 */
     font-weight: 700;
@@ -53,12 +61,15 @@ body {
     margin: 0;
 }
 
+/* 네비게이션 스타일 */
 .header nav {
     display: flex;
     justify-content: center;
     margin-top: 10px; /* 네비게이션의 상단 여백 조정 */
+    padding: 0;
 }
 
+/* 네비게이션 링크 스타일 */
 .header nav a {
     color: #333; /* 어두운 텍스트 색상 */
     text-decoration: none;
@@ -70,15 +81,18 @@ body {
     padding-bottom: 5px;
 }
 
+/* 네비게이션 링크 호버 스타일 */
 .header nav a:hover {
     color: #F9A825; /* 링크 호버 시 밝은 노란색 */
     border-bottom: 3px solid #F9A825; /* 링크 호버 시 밝은 노란색 밑줄 */
 }
 
+/* 활성 링크 스타일 */
 .header nav a.active {
     color: #F9A825; /* 활성 링크 색상 */
     border-bottom: 3px solid #F9A825; /* 활성 링크 밑줄 */
 }
+
 
 
 html {
@@ -401,6 +415,7 @@ html {
 
 
 @media (max-width: 768px) {
+    
     .header nav {
         display: none;
         flex-direction: column;
@@ -410,7 +425,18 @@ html {
         background: fff8e1;
         padding: 10px;
     }
+    
+    .header {
+        padding: 10px 15px; /* 모바일에서 패딩 조정 */
+    }
 
+
+
+    .header nav a {
+        margin: 10px 0; /* 모바일에서 링크 간격 조정 */
+        font-size: 16px; /* 모바일에서 폰트 크기 조정 */
+    }
+}
     .header nav.active {
         display: flex;
         transform: translateY(0);
