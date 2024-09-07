@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Extreme</title>
+    <style>
+        @font-face {
+    font-family: 'SBAggroB';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'SBAggroB', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #555; /* 밝은 회색 텍스트 색상 */
+    background: #fff8e1; /* 밝은 크림색 배경 */
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-bottom: 120px;
+}
+
+.header {
+    background: #fff; /* 흰색 배경 */
+    color: #333; /* 어두운 텍스트 색상 */
+    padding: 15px 30px; /* 상단바의 패딩 조정 */
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 깊이감을 주는 그림자 */
+    backdrop-filter: blur(8px); /* 흐림 효과 강화 */
+    border-bottom: 2px solid #fdd835; /* 중간 노란색 하단 테두리 */
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header:hover {
+    background: #f9f9f9; /* 상단바 호버 시 배경색 변경 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
+}
+
+.header .logo {
+    font-size: 32px; /* 로고 크기 확대 */
+    font-weight: 700;
+    color: #F9A825; /* 밝은 노란색 로고 */
+    margin: 0;
+}
+
+.header nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* 네비게이션의 상단 여백 조정 */
+}
+
+.header nav a {
+    color: #333; /* 어두운 텍스트 색상 */
+    text-decoration: none;
+    margin: 0 20px; /* 링크 간격 조정 */
+    font-size: 18px; /* 링크 폰트 크기 확대 */
+    font-weight: 600; /* 링크 폰트 두께 조정 */
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.header nav a:hover {
+    color: #F9A825; /* 링크 호버 시 밝은 노란색 */
+    border-bottom: 3px solid #F9A825; /* 링크 호버 시 밝은 노란색 밑줄 */
+}
+
+.header nav a.active {
+    color: #F9A825; /* 활성 링크 색상 */
+    border-bottom: 3px solid #F9A825; /* 활성 링크 밑줄 */
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* About Us Section */
+.section {
+    background: #fff8E1; /* Clean white background */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Depth */
+    margin-top: 150px;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.section:hover {
+    transform: scale(1.02);
+}
+
+.title-wrapper {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.title-wrapper h2 {
+    font-size: 36px; /* Larger title size */
+    font-weight: 700;
+    color: #333; /* Dark text color for contrast */
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #F9A825; /* Bright yellow underline */
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.title-wrapper h2:hover {
+    color: #F9A825; /* Change text color on hover */
+    border-bottom-color: #FBC02D; /* Darker yellow underline on hover */
+}
+
+.profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile {
+    background: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.profile img {
+    width: 100%;
+    height: 200px; /* Fixed height for profile images */
+    object-fit: cover;
+    border-bottom: 4px solid #F9A825; /* Bright yellow border */
+}
+
+.profile-info {
+    font-size: 20px; /* Larger font size */
+    font-weight: 700;
+    margin: 15px 0;
+    color: #333; /* Dark text color */
+}
+
+.profile-description {
+    font-size: 18px; /* Slightly larger font size for better readability */
+    color: #666; /* Medium gray color */
+    margin-bottom: 20px;
+}
+
+.profile-info, .profile-description {
+    padding: 15px;
+    background: #fafafa; /* Light background for text areas */
+    border-top: 1px solid #eee; /* Subtle top border */
+}
+
+
+.title-wrapper h2 {
+    font-size: 28px; /* Adjusted size */
+    font-weight: 700;
+    margin: 0;
+    border-bottom: 2px solid #fdd835; /* 중간 노란색 */
+    padding-bottom: 10px;
+    display: inline-block;
+    color: #333;
+}
+
+.info-box {
+    background: #fff; /* 흰색 배경 */
+    border: 1px solid #fdd835; /* 중간 노란색 */
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #fbc02d;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+}
+
+.gallery-item {
+    flex: 0 0 auto;
+    width: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #fdd835; /* 중간 노란색 */
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 8px;
+}
+
+.close {
+    color: #888;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.banner {
+    background: #fff; /* 흰색 배경 */
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.social-links a {
+    color: #fdd835; /* 중간 노란색 링크 */
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fbc02d; /* 채도 높은 진한 노란색 */
+}
+
+.social-links .icon {
+    font-size: 20px;
+}
+
+.footer {
+    background: #f9a825; /* 선명한 노란색 배경 */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(100%);
+}
+
+.footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Join Us Section */
+#contact {
+    background: #fff8e1; /* 부드러운 크림색 배경 */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 15px; /* 둥근 모서리 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* 깊이감 */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#contact .title-wrapper {
+    margin-bottom: 20px;
+}
+
+#contact .title-wrapper h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #F9A825; /* 밝은 노란색 */
+    position: relative;
+    display: inline-block;
+}
+
+#contact .info-box {
+    background: #fff;
+    border: 1px solid #fdd835; /* 중간 노란색 */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-links a {
+    color: #fdd835; /* 중간 노란색 링크 */
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #fbc02d; /* 진한 노란색 */
+}
+
+.social-links .icon {
+    font-size: 22px; /* 아이콘 크기 조정 */
+}
+
+
+@media (max-width: 768px) {
+    .header nav {
+        display: none;
+        flex-direction: column;
+        text-align: center;
+        z-index: 1000;
+        transition: transform 0.3s ease;
+        background: fff8e1;
+        padding: 10px;
+    }
+
+    .header nav.active {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .header .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .header nav a {
+        margin: 10px 0;
+        font-size: 18px;
+        color: #fdd835;
+    }
+
+    .header nav a:hover {
+        color: #fbc02d;
+    }
+
+    .section {
+        padding: 20px;
+        margin-top: 60px;
+    }
+
+    .profile img {
+        height: 150px;
+    }
+
+    .gallery-item {
+        width: 150px;
+    }
+
+    .profiles {
+        grid-template-columns: 1fr;
+    }
+
+    .title-wrapper h2 {
+        font-size: 24px;
+    }
+}
+
+
+/* Keyframes for smooth transitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.mission {
+    background: #fff8e1; /* 크림색 배경으로 유지 */
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 15px; /* 둥근 모서리 강조 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* 깊이감을 위한 그림자 */
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission h2 {
+    font-size: 32px; /* 제목 크기 증가 */
+    font-weight: 700;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #fbc02d; /* 채도 높은 진한 노란색 */
+    padding-bottom: 10px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.mission h2:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 50px;
+    height: 5px;
+    background: #fbc02d; /* 채도 높은 진한 노란색 */
+    border-radius: 10px;
+    transform: translateX(-50%);
+}
+
+.mission p {
+    font-size: 18px;
+    color: #555; /* 중간 회색 텍스트 색상 */
+    line-height: 1.8;
+    margin-bottom: 20px;
+    background: #fff; /* 흰색 배경 */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 박스 그림자 추가 */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 애니메이션 효과 */
+}
+
+.mission p:hover {
+    background: #fce4b1; /* 연한 노란색으로 배경 변경 */
+    transform: translateY(-5px); /* 부드러운 상하 이동 효과 */
+}
+
+.mission p::before {
+    content: '“'; /* 인용부호 스타일링 */
+    font-size: 40px;
+    color: #fbc02d; /* 채도 높은 진한 노란색 */
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.mission p::after {
+    content: '”'; /* 인용부호 스타일링 */
+    font-size: 40px;
+    color: #fbc02d; /* 채도 높은 진한 노란색 */
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Team Extreme</div>
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#mission">Our Focus</a>
+            <a href="#contact">Join Us</a>
+        </nav>
+    </header>
+
+    <section class="section" id="about">
+        <div class="title-wrapper">
+            <h2>About Us</h2>
+        </div>
+        <div class="profiles">
+            <div class="profile">
+                <img src="./img/1.png" alt="Team Member 1">
+                <div class="profile-info">Leader</div>
+                <div class="profile-description">Extreme Quality</div>
+            </div>
+            <div class="profile">
+                <img src="./img/2.png" alt="Team Member 2">
+                <div class="profile-info">Assistant</div>
+                <div class="profile-description">강원재</div>
+            </div>
+            <div class="profile">
+                <img src="./img/2.png" alt="Team Member 3">
+                <div class="profile-info">Assistant</div>
+                <div class="profile-description">이정오</div>
+            </div>
+            <div class="profile">
+                <img src="./img/2.png" alt="Team Member 4">
+                <div class="profile-info">Manager</div>
+                <div class="profile-description">은정</div>
+            </div>
+            <div class="profile">
+                <img src="./img/2.png" alt="Team Member 5">
+                <div class="profile-info">Manager</div>
+                <div class="profile-description">유선미</div>
+            </div>
+            <div class="profile">
+                <img src="./img/2.png" alt="Team Member 6">
+                <div class="profile-info">Manager</div>
+                <div class="profile-description">현성</div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="mission" id="mission">
+        <h2>Our Focus</h2>
+        <p>팀 익스트림은 파충류, 특히 크레스티드 게코를 처음 접하는 입문자들을 위해 활동하는 팀입니다. 저희는 초보자들에게 크레스티드 게코를 무료로 분양하며, 이를 통해 입문자들이 보다 쉽게 이 매력적인 생물을 접하고, 안전하게 돌볼 수 있도록 돕고 있습니다. 우리의 목표는 단순히 동물을 분양하는 데 그치지 않고, 입문자들과 지속적으로 소통하며 크레스티드 게코에 대한 깊이 있는 정보와 실질적인 조언을 제공하는 것입니다.</p>
+
+            <p>크레스티드 게코의 사육, 관리, 번식에 대한 팁을 공유하고, 입문자들이 직면할 수 있는 다양한 문제들을 해결할 수 있도록 구체적인 가이드를 제공합니다. 저희는 크레스티드 게코를 키우는 과정에서 발생할 수 있는 어려움들을 함께 해결하고, 이들이 새로운 환경에 적응하고 건강하게 자랄 수 있도록 최선을 다해 지원합니다.</p>
+            
+            <p>이 외에도, 저희 커뮤니티는 다양한 경험을 가진 사람들이 모여 서로의 지식을 나누고 소중한 경험을 공유하는 따뜻한 공간입니다. 초보자부터 숙련자까지, 모두가 서로 배우고 성장하는 과정을 통해 크레스티드 게코의 매력적인 세계를 함께 탐험하고, 나아가 파충류에 대한 이해를 넓혀가는 것을 목표로 하고 있습니다.</p>
+            
+            <p>저희 팀 익스트림은 단순한 정보 제공을 넘어서, 입문자들이 크레스티드 게코를 성공적으로 키울 수 있도록 지속적인 지원과 도움을 아끼지 않습니다. 앞으로도 저희는 크레스티드 게코와 관련된 지식을 공유하고, 새로운 애호가들이 이 세계에 더욱 쉽게 다가갈 수 있도록 최선을 다할 것입니다.</p>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="title-wrapper">
+            <h2>Join Us</h2>
+        </div>
+        <div class="info-box">
+            <p>저희와 함께 크레스티드 게코의 매력적인 세계를 탐험하세요. 아래의 링크를 통해 저희와 소통하고, 다양한 플랫폼에서 최신 정보를 받아보실 수 있습니다.</p>
+            <div class="social-links">
+                <a href="https://open.kakao.com/o/gjhyvWkg" target="_blank">
+                    <span class="icon"><i class="fab fa-kakaotalk"></i></span> KakaoTalk
+                </a>
+                <a href="https://www.instagram.com/cre_free?igsh=MXN6bWJ5anIyamJtMQ==" target="_blank">
+                    <span class="icon"><i class="fab fa-instagram"></i></span> Instagram
+                </a>
+                <a href="https://www.daangn.com/kr/groups/bA6BxDWA" target="_blank">
+                    <span class="icon"><i class="fas fa-carrot"></i></span> Carrot Market
+                </a>
+                <a href="https://m.blog.naver.com/gecko__saurus?proxyReferer=https%3A%2F%2Fl.instagram.com%2F&tab=1&trackingCode=external" target="_blank">
+                    <span class="icon"><i class="fas fa-blog"></i></span> Blog
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="footer" id="footer">
+        <p>© 2024 Team Extreme. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Footer visibility on scroll
+        window.addEventListener('scroll', function () {
+            var footer = document.querySelector('.footer');
+            if (window.scrollY > 100) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
+        });
+
+        document.querySelectorAll('.header nav a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+        // Toggle mobile nav
+        const navLinks = document.querySelector('.header nav');
+        document.querySelector('.header .logo').addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+
+        // Footer visibility on scroll
+window.addEventListener('scroll', function () {
+    var footer = document.querySelector('.footer');
+    if (window.scrollY > 100) {
+        footer.classList.add('visible');
+    } else {
+        footer.classList.remove('visible');
+    }
+});
+    </script>
+</body>
+
+</html>
