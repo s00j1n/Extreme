@@ -603,7 +603,38 @@ html {
     right: 10px;
     bottom: 10px;
 }
+@media (max-width: 768px) {
+    nav {
+        display: none; /* 기본적으로 숨김 */
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 60px; /* 헤더 아래 위치 */
+        right: 0;
+        background: #f8f9fa;
+        width: 100%;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
+    nav.active {
+        display: flex; /* active 클래스가 붙으면 보이도록 */
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg);
+        top: 8px;
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg);
+        top: -8px;
+    }
+}
 
     </style>
 </head>
@@ -611,7 +642,7 @@ html {
 <header class="header">
     <div class="container">
         <div class="logo">Team Extreme</div>
-        <nav>
+        <nav id="navMenu">
             <a href="#about" class="nav-link">About Us</a>
             <a href="#mission" class="nav-link">Our Focus</a>
             <a href="#contact" class="nav-link">Join Us</a>
@@ -765,6 +796,12 @@ window.addEventListener('scroll', function () {
  document.querySelector('.menu-toggle').addEventListener('click', function () {
             document.querySelector('nav').classList.toggle('active');
         });
+
+        document.getElementById('menuToggle').addEventListener('click', function() {
+    const navMenu = document.getElementById('navMenu');
+    this.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
     </script>
 </body>
 
